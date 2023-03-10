@@ -26,7 +26,7 @@ int main(){
         if(i != TAM - 1) printf(", ");
     }
 
-    printf("]");
+    printf("]\n");
 
     return 0;
 }

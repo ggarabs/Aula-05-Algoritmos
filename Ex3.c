@@ -1,18 +1,26 @@
 #include <stdio.h>
 
-int interseccao(int vetor1[], int vetor2[], int ans[], int tam1, int tam2){
+void interseccao(int vetor1[], int vetor2[], int tam1, int tam2){
     int index = 0;
+    int tam = tam1 > tam2 ? tam1 : tam2;
+    int vetor_resp[tam];
+
     for(int i = 0; i < tam1; i++){
         for(int j = 0; j < tam2; j++){
             if(vetor1[i]==vetor2[j]){
-                ans[index] = vetor1[i];
+                vetor_resp[index] = vetor1[i];
                 index++;
                 break;
             }
         }
     }
 
-    return index;
+    printf("A intersecção dos conjuntos A e B é dada por: {");
+    for(int i = 0; i < index; i++){
+        printf("%d", vetor_resp[i]);
+        if(i != index-1) printf(",");
+    }
+    printf("}\n");
 }
 
 int main(){
@@ -38,19 +46,7 @@ int main(){
         scanf("%d", &b_list[i]);
     }
 
-    int tam = a_size > b_size ? a_size : b_size;
-    int vetor_resp[tam];
-
-    tam = interseccao(a_list, b_list, vetor_resp, a_size, b_size);
-
-    printf("A intersecção dos conjuntos A e B é dada por: {");
-
-    for(int i = 0; i < tam; i++){
-        printf("%d", vetor_resp[i]);
-        if(i != tam-1) printf(",");
-    }
-
-    printf("}");
+    interseccao(a_list, b_list, a_size, b_size);
 
     return 0;
 

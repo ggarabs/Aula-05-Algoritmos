@@ -20,9 +20,9 @@ int main(){
     }
 
     if(cresc(num_list, tam)){
-        printf("A lista está em ordem crescente!");
+        printf("A lista está em ordem crescente!\n");
     }else{
-        printf("A lista não está em ordem crescente!");
+        printf("A lista não está em ordem crescente!\n");
     }
 
     return 0;
