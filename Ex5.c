@@ -1,11 +1,11 @@
 #include <stdio.h>
 #include <stdbool.h>
 
-int diference(int vetor1[], int vetor2[], int tam1, int tam2){
+void diference(int vetor1[], int vetor2[], int tam1, int tam2){
     int index = 0;
     int tam = tam1 > tam2 ? tam1 : tam2;
     int vetor_resp[tam];
-    
+
     for(int i = 0; i < tam1; i++){
         bool esta = false;
         for(int j = 0; j < tam2; j++){
@@ -19,44 +19,21 @@ int diference(int vetor1[], int vetor2[], int tam1, int tam2){
         }
     }
 
-    printf("A diferenca dos conjuntos A e B é dada por: {");
     for(int i = 0; i < index; i++){
         printf("%d", vetor_resp[i]);
-        if(i != index-1) printf(",");
+        if(i != index - 1) printf(",");
     }
-    printf("}\n");
 
 }
 
-void interseccao(int vetor1[], int vetor2[], int tam1, int tam2){
-    int index = 0;
-    int tam = tam1 > tam2 ? tam1 : tam2;
-    int vetor_resp[tam];
-
-    for(int i = 0; i < tam1; i++){
-        for(int j = 0; j < tam2; j++){
-            if(vetor1[i]==vetor2[j]){
-                vetor_resp[index] = vetor1[i];
-                index++;
-                break;
-            }
-        }
-    }
-
-    printf("A intersecção dos conjuntos A e B é dada por: {");
-    for(int i = 0; i < index; i++){
-        printf("%d", vetor_resp[i]);
-        if(i != index-1) printf(",");
-    }
-    printf("}\n");
-}
-
-int uniao(int vetor1[], int vetor2[], int tam1, int tam2){
+void uniao(int vetor1[], int vetor2[], int tam1, int tam2){
     printf("A união dos conjuntos A e B é dada por: {");
-    for(int i = 0; i < index; i++){
-        printf("%d", vetor_resp[i]);
-        if(i != index-1) printf(",");
+    for(int i = 0; i < tam1; i++){
+        printf("%d,", vetor1[i]);
     }
+
+    diference(vetor2, vetor1, tam2, tam1);
+
     printf("}\n");
 }
 
